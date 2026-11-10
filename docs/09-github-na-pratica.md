@@ -114,7 +114,7 @@ git switch -c feat/busca
 git push -u origin feat/busca
 ```
 
-No GitHub aparece o botão **Compare & pull request**. Ou pelo terminal, com o [GitHub CLI](12-recursos-do-github.md#github-cli):
+No GitHub aparece o botão **Compare & pull request**. Ou pelo terminal, com o [GitHub CLI](13-github-cli.md):
 
 ```bash
 gh pr create --fill

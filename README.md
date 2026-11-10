@@ -7,7 +7,7 @@ Escrito em português, direto ao ponto e com exemplos que você pode rodar no se
 ## Como usar este guia
 
 - **Começando do zero?** Siga os capítulos em ordem.
-- **Já usa Git?** Pule para o que precisa. A [cola](docs/cola.md) e os [problemas comuns](docs/15-problemas-comuns.md) resolvem a maioria das dúvidas do dia a dia.
+- **Já usa Git?** Pule para o que precisa. A [cola](docs/cola.md) e os [problemas comuns](docs/16-problemas-comuns.md) resolvem a maioria das dúvidas do dia a dia.
 - **Aprenda fazendo.** Abra um terminal, crie uma pasta de teste e repita os comandos de cada capítulo.
 - **Quer um mapa visual?** Os capítulos cobrem os tópicos do [roadmap de Git e GitHub do roadmap.sh](https://roadmap.sh/git-github). Use os dois juntos para marcar seu progresso.
 
@@ -38,15 +38,16 @@ Escrito em português, direto ao ponto e com exemplos que você pode rodar no se
 | 09 | [GitHub na prática](docs/09-github-na-pratica.md) | Perfil, README, issues, Projects, fork, pull request, code review |
 | 10 | [Fluxos de trabalho](docs/10-fluxos-de-trabalho.md) | GitHub Flow, Git Flow, nomes de branch, trabalho em time |
 | 11 | [GitHub Actions](docs/11-github-actions.md) | Automação: testes a cada push, segredos, artefatos |
-| 12 | [Recursos do GitHub](docs/12-recursos-do-github.md) | Pages, Releases, CLI, Gists, segurança, Codespaces, API |
+| 12 | [Recursos do GitHub](docs/12-recursos-do-github.md) | Pages, Releases, Gists, segurança, Codespaces, API |
+| 13 | [GitHub CLI (`gh`) e IA](docs/13-github-cli.md) | Issues, PRs e Actions pelo terminal, `--json`, e como agentes de IA usam o `gh` |
 
 ### 🟣 Avançado
 
 | # | Capítulo | O que você aprende |
 | --- | --- | --- |
-| 13 | [.gitignore e hooks](docs/13-gitignore-e-hooks.md) | Ignorar arquivos e automatizar validações |
-| 14 | [Git avançado](docs/14-git-avancado.md) | bisect, worktree, submódulos, LFS, patches, reescrever histórico |
-| 15 | [Problemas comuns](docs/15-problemas-comuns.md) | "Commitei na branch errada", senha no commit, push recusado... |
+| 14 | [.gitignore e hooks](docs/14-gitignore-e-hooks.md) | Ignorar arquivos e automatizar validações |
+| 15 | [Git avançado](docs/15-git-avancado.md) | bisect, worktree, submódulos, LFS, patches, reescrever histórico |
+| 16 | [Problemas comuns](docs/16-problemas-comuns.md) | "Commitei na branch errada", senha no commit, push recusado... |
 
 ### 📚 Referência
 
@@ -67,7 +68,7 @@ git clone https://github.com/karlos-silva/guia-git.git
 ./guia-git/scripts/install.sh caminho/do/seu-projeto
 ```
 
-Detalhes no capítulo [.gitignore e hooks](docs/13-gitignore-e-hooks.md#hooks-deste-repositório).
+Detalhes no capítulo [.gitignore e hooks](docs/14-gitignore-e-hooks.md#hooks-deste-repositório).
 
 ## Licença
 

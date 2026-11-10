@@ -26,24 +26,7 @@ O `--generate-notes` monta as notas a partir dos PRs. Com os commits no padrão,
 
 ## GitHub CLI
 
-O `gh` traz o GitHub para o terminal. Instale em [cli.github.com](https://cli.github.com) e faça login:
-
-```bash
-gh auth login
-```
-
-```bash
-gh repo create meu-projeto --public --source . --push   # cria repo a partir da pasta atual
-gh repo clone usuario/projeto
-gh pr create --fill          # abre PR com título e corpo a partir dos commits
-gh pr list
-gh pr checkout 42            # baixa o PR 42 para testar
-gh pr merge --squash
-gh issue create
-gh issue list --label bug
-gh run watch                 # acompanha o GitHub Actions
-gh browse                    # abre o repo no navegador
-```
+O `gh` traz o GitHub para o terminal: repositórios, issues, PRs, Actions e releases sem abrir o navegador. É também a ferramenta que os agentes de IA usam para trabalhar no GitHub. Ele tem um capítulo só dele: [GitHub CLI (`gh`) e IA](13-github-cli.md).
 
 ## Gists
 
@@ -99,4 +82,4 @@ O **GitHub Sponsors** permite apoiar financeiramente quem mantém projetos open 
 
 ---
 
-[← Anterior](11-github-actions.md) · [Índice](../README.md) · [Próximo: .gitignore e hooks →](13-gitignore-e-hooks.md)
+[← Anterior](11-github-actions.md) · [Índice](../README.md) · [Próximo: GitHub CLI e IA →](13-github-cli.md)

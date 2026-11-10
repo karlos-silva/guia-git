@@ -86,10 +86,16 @@ git config --list
 
 | Comando | O que faz |
 | --- | --- |
-| `gh repo create` | Cria repositório |
+| `gh auth login` | Faz login |
+| `gh repo create --source . --push` | Sobe a pasta atual para um repositório novo |
+| `gh issue view <n> --comments` | Lê uma issue |
 | `gh pr create --fill` | Abre pull request |
 | `gh pr checkout <n>` | Baixa um PR |
-| `gh issue list` | Lista issues |
+| `gh pr checks --watch` | Acompanha o CI do PR |
+| `gh run view --log-failed` | Log do que falhou no Actions |
+| `gh <comando> --json <campos>` | Saída estruturada para scripts e IA |
+
+Mais no capítulo [GitHub CLI (`gh`) e IA](13-github-cli.md).
 
 ---
 
