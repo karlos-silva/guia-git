@@ -28,21 +28,36 @@ git stash pop
 
 O `rebase` pega os commits da sua branch e **reaplica em cima** de outra. O resultado é um histórico em linha reta, sem commits de merge.
 
-```text
-antes:
-main    ●───●───●───●
-             \
-feat          ●───●
+Antes: a `feat` saiu do `B`, e a `main` andou depois disso.
 
-git switch feat && git rebase main
-
-depois:
-main    ●───●───●───●
-                     \
-feat                  ●'───●'
+```mermaid
+gitGraph
+    commit id: "A"
+    commit id: "B"
+    branch feat
+    checkout feat
+    commit id: "D"
+    commit id: "E"
+    checkout main
+    commit id: "C"
+    commit id: "F"
 ```
 
-Os commits `●'` são **novos** (hash diferente), com o mesmo conteúdo.
+Depois de `git switch feat && git rebase main`: os commits da `feat` passam a sair do `F`.
+
+```mermaid
+gitGraph
+    commit id: "A"
+    commit id: "B"
+    commit id: "C"
+    commit id: "F"
+    branch feat
+    checkout feat
+    commit id: "D'"
+    commit id: "E'"
+```
+
+Os commits `D'` e `E'` são **novos** (hash diferente), com o mesmo conteúdo de `D` e `E`.
 
 ```bash
 git switch feat/login
