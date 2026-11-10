@@ -47,13 +47,15 @@ Alternativas ao GitHub: GitLab, Bitbucket, Gitea. O Git é o mesmo em todos.
 
 Esse é o conceito mais importante do Git. Todo arquivo passa por três lugares:
 
-```text
- Pasta de trabalho         Stage (índice)            Repositório
- (working directory)       (staging area)            (.git)
-┌──────────────────┐      ┌──────────────────┐      ┌──────────────────┐
-│ onde você edita  │ ───► │ o que vai entrar │ ───► │ histórico de     │
-│ os arquivos      │ add  │ no próximo commit│commit│ commits          │
-└──────────────────┘      └──────────────────┘      └──────────────────┘
+```mermaid
+flowchart LR
+    W["📂 Pasta de trabalho<br/>(working directory)<br/>onde você edita os arquivos"]
+    S["📋 Stage<br/>(staging area)<br/>o que vai no próximo commit"]
+    R["🗄️ Repositório<br/>(.git)<br/>histórico de commits"]
+    W -- "git add" --> S
+    S -- "git commit" --> R
+    S -. "git restore --staged" .-> W
+    R -. "git restore / git switch" .-> W
 ```
 
 1. **Pasta de trabalho:** seus arquivos, do jeito que estão agora.
