@@ -1,4 +1,4 @@
-# 14. Git avançado
+# 15. Git avançado
 
 Ferramentas que você não usa todo dia, mas que salvam quando precisa.
 
@@ -143,4 +143,4 @@ E cadastre a chave no GitHub também como *Signing key*.
 
 ---
 
-[← Anterior](13-gitignore-e-hooks.md) · [Índice](../README.md) · [Próximo: Problemas comuns →](15-problemas-comuns.md)
+[← Anterior](14-gitignore-e-hooks.md) · [Índice](../README.md) · [Próximo: Problemas comuns →](16-problemas-comuns.md)

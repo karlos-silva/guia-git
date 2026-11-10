@@ -1,4 +1,4 @@
-# 15. Problemas comuns
+# 16. Problemas comuns
 
 Os "e agora?" mais frequentes, com a solução.
 
@@ -26,7 +26,7 @@ git reset --hard HEAD~1       # remove da main (só se não tiver dado push)
 1. **Revogue a credencial imediatamente** (gere outra senha ou token no serviço). Considere que ela vazou: robôs varrem o GitHub atrás disso em minutos.
 2. Tire do código e use variável de ambiente (`.env` no `.gitignore`).
 3. Se o commit ainda não foi enviado: `git reset --soft HEAD~1`, corrija e commite de novo.
-4. Se já foi enviado, apagar o arquivo num commit novo não resolve, porque ele continua no histórico. Remova com `git filter-repo` ([capítulo 14](14-git-avancado.md#reescrevendo-o-histórico-inteiro)). Mas o passo 1 é o que realmente importa.
+4. Se já foi enviado, apagar o arquivo num commit novo não resolve, porque ele continua no histórico. Remova com `git filter-repo` ([capítulo 14](15-git-avancado.md#reescrevendo-o-histórico-inteiro)). Mas o passo 1 é o que realmente importa.
 
 ## Push recusado: `rejected (fetch first)` / `non-fast-forward`
 
@@ -78,7 +78,7 @@ Para evitar: crie o repositório no GitHub vazio.
 
 ## Estou em "detached HEAD"
 
-Você entrou num commit ou tag diretamente. Para voltar: `git switch main`. Se fez commits ali e quer guardar: `git switch -c nova-branch`. Detalhes no [capítulo 14](14-git-avancado.md#head-e-detached-head).
+Você entrou num commit ou tag diretamente. Para voltar: `git switch main`. Se fez commits ali e quer guardar: `git switch -c nova-branch`. Detalhes no [capítulo 14](15-git-avancado.md#head-e-detached-head).
 
 ## Fiquei preso no editor do commit
 
@@ -106,7 +106,7 @@ git config core.fileMode false           # ignora mudança de permissão
 
 ## Arquivo grande demais (> 100 MB)
 
-O GitHub recusa o push. Tire o arquivo do histórico (`git reset` se não enviou, ou `git filter-repo`) e use [Git LFS](14-git-avancado.md#git-lfs-arquivos-grandes) ou deixe fora do repositório.
+O GitHub recusa o push. Tire o arquivo do histórico (`git reset` se não enviou, ou `git filter-repo`) e use [Git LFS](15-git-avancado.md#git-lfs-arquivos-grandes) ou deixe fora do repositório.
 
 ## Apaguei uma branch ou commit sem querer
 
@@ -129,4 +129,4 @@ git clean -fd     # remove também arquivos novos
 
 ---
 
-[← Anterior](14-git-avancado.md) · [Índice](../README.md) · [Cola de comandos →](cola.md)
+[← Anterior](15-git-avancado.md) · [Índice](../README.md) · [Cola de comandos →](cola.md)

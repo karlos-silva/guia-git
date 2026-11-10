@@ -1,4 +1,4 @@
-# 13. .gitignore e hooks
+# 14. .gitignore e hooks
 
 ## .gitignore
 
@@ -55,7 +55,7 @@ git rm -r --cached node_modules
 git commit -m "chore: para de versionar .env e node_modules"
 ```
 
-> Se o arquivo tinha senha ou token, isso **não basta**: ele continua no histórico. Veja [Commitei uma senha](15-problemas-comuns.md#commitei-uma-senha-ou-token).
+> Se o arquivo tinha senha ou token, isso **não basta**: ele continua no histórico. Veja [Commitei uma senha](16-problemas-comuns.md#commitei-uma-senha-ou-token).
 
 ### .gitignore global
 
@@ -177,4 +177,4 @@ Ele commita só o que estiver no stage.
 
 ---
 
-[← Anterior](12-recursos-do-github.md) · [Índice](../README.md) · [Próximo: Git avançado →](14-git-avancado.md)
+[← Anterior](13-github-cli.md) · [Índice](../README.md) · [Próximo: Git avançado →](15-git-avancado.md)

@@ -121,7 +121,7 @@ Closes #42
 
 ## Automatizando
 
-Este repositório tem um hook que recusa commits fora do padrão e um assistente que monta a mensagem para você. Veja em [.gitignore e hooks](13-gitignore-e-hooks.md#hooks-deste-repositório).
+Este repositório tem um hook que recusa commits fora do padrão e um assistente que monta a mensagem para você. Veja em [.gitignore e hooks](14-gitignore-e-hooks.md#hooks-deste-repositório).
 
 ---
 
