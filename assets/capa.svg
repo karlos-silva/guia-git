@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="titulo desc">
+  <title id="titulo">Guia de Git</title>
+  <desc id="desc">Do primeiro commit ao trabalho em time: Git, GitHub, GitHub CLI e IA. Ilustração de uma branch main com duas branches sendo mescladas.</desc>
+  <defs>
+    <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <radialGradient id="brilho" cx="0.78" cy="0.5" r="0.45">
+      <stop offset="0" stop-color="#3fb950" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#3fb950" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grade" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#30363d" opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="420" rx="24" fill="url(#fundo)"/>
+  <rect width="1280" height="420" rx="24" fill="url(#grade)"/>
+  <rect width="1280" height="420" rx="24" fill="url(#brilho)"/>
+
+  <!-- Texto -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="80" y="112" fill="#7d8590" font-size="20" font-weight="600" letter-spacing="4">GUIA EM PORTUGUÊS</text>
+    <text x="78" y="198" fill="#f0f6fc" font-size="88" font-weight="800" letter-spacing="-2">Guia de Git</text>
+    <text x="80" y="250" fill="#c9d1d9" font-size="28">Do primeiro commit ao trabalho em time.</text>
+    <text x="80" y="290" fill="#7d8590" font-size="22">Git · GitHub · GitHub CLI · IA · Fluxos de empresa</text>
+  </g>
+
+  <!-- Comando -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">
+    <rect x="80" y="324" width="452" height="48" rx="10" fill="#010409" stroke="#30363d"/>
+    <text x="102" y="355" fill="#3fb950">$</text>
+    <text x="124" y="355" fill="#e6edf3">git commit -m <tspan fill="#a5d6ff">":tada: init"</tspan></text>
+  </g>
+
+  <!-- Grafo de branches -->
+  <g fill="none" stroke-width="6" stroke-linecap="round">
+    <path d="M760 210 H1196" stroke="#58a6ff"/>
+    <path d="M868 210 C904 210 892 122 934 122 H1060 C1102 122 1090 210 1126 210" stroke="#3fb950"/>
+    <path d="M948 210 C984 210 972 298 1014 298 H1124 C1166 298 1154 210 1190 210" stroke="#f78166"/>
+  </g>
+  <g stroke-width="5">
+    <circle cx="790" cy="210" r="11" fill="#0d1117" stroke="#58a6ff"/>
+    <circle cx="868" cy="210" r="11" fill="#0d1117" stroke="#58a6ff"/>
+    <circle cx="948" cy="210" r="11" fill="#0d1117" stroke="#58a6ff"/>
+    <circle cx="1030" cy="210" r="11" fill="#0d1117" stroke="#58a6ff"/>
+    <circle cx="1126" cy="210" r="12" fill="#58a6ff" stroke="#58a6ff"/>
+    <circle cx="1190" cy="210" r="12" fill="#58a6ff" stroke="#58a6ff"/>
+
+    <circle cx="972" cy="122" r="11" fill="#0d1117" stroke="#3fb950"/>
+    <circle cx="1036" cy="122" r="11" fill="#0d1117" stroke="#3fb950"/>
+
+    <circle cx="1046" cy="298" r="11" fill="#0d1117" stroke="#f78166"/>
+    <circle cx="1104" cy="298" r="11" fill="#0d1117" stroke="#f78166"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">
+    <text x="760" y="248" fill="#58a6ff">main</text>
+    <text x="946" y="96" fill="#3fb950">feat/login</text>
+    <text x="1020" y="338" fill="#f78166">fix/frete</text>
+    <rect x="1160" y="160" width="64" height="26" rx="13" fill="#1f6feb" opacity="0.25"/>
+    <text x="1173" y="179" fill="#a5d6ff">v1.0</text>
+  </g>
+</svg>
