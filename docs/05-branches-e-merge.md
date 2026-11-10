@@ -4,10 +4,21 @@
 
 Uma branch é uma **linha paralela de trabalho**. Você cria uma branch para desenvolver algo (um recurso, uma correção) sem mexer na versão principal. Quando terminar, junta de volta.
 
-```text
-main     ●───●───●───────────●   ← merge
-                  \         /
-feat/login         ●───●───●
+```mermaid
+%%{init: {'gitGraph': {'showCommitLabel': false}}}%%
+gitGraph
+    commit
+    commit
+    branch feat/login
+    checkout feat/login
+    commit
+    commit
+    checkout main
+    commit
+    checkout feat/login
+    commit
+    checkout main
+    merge feat/login
 ```
 
 Por baixo dos panos, uma branch é só um ponteiro para um commit. Criar branch no Git é instantâneo e barato, então use à vontade.
@@ -42,22 +53,43 @@ git merge feat/login
 
 Se a `main` não andou desde que a branch foi criada, o Git só "avança o ponteiro". Nenhum commit novo é criado:
 
-```text
-antes:   main ●───●
-                   \
-         feat       ●───●
+Antes: a `feat` andou, a `main` ficou parada.
 
-depois:  main ●───●───●───●
+```mermaid
+gitGraph
+    commit id: "A"
+    commit id: "B"
+    branch feat
+    checkout feat
+    commit id: "C"
+    commit id: "D"
+```
+
+Depois do `git merge feat`: a `main` só avançou até o `D`, em linha reta.
+
+```mermaid
+gitGraph
+    commit id: "A"
+    commit id: "B"
+    commit id: "C"
+    commit id: "D"
 ```
 
 ### Merge de três vias
 
 Se as duas branches andaram, o Git cria um **commit de merge** que une as duas:
 
-```text
-main  ●───●───●───────●   ← commit de merge
-           \         /
-feat        ●───●───●
+```mermaid
+gitGraph
+    commit id: "A"
+    commit id: "B"
+    branch feat
+    checkout feat
+    commit id: "C"
+    commit id: "D"
+    checkout main
+    commit id: "E"
+    merge feat id: "merge"
 ```
 
 Para sempre criar o commit de merge (deixa claro no histórico que ali entrou uma feature):
