@@ -18,17 +18,50 @@ Não existe modelo melhor em absoluto. Existe o que combina com o produto e com 
 
 Criado em 2010 por Vincent Driessen, foi por anos o modelo mais famoso. Usa **duas branches permanentes** e três tipos de branches temporárias.
 
-```text
-hotfix/1.0.1          ●───●
-                     /     \
-main      ●─────────●───────●──────────────●        (só versões lançadas: v1.0.0, v1.0.1, v1.1.0)
-           \       / v1.0.0  \ v1.0.1      / v1.1.0
-release     \     ●──●        \           ●──●       (release/1.0, release/1.1)
-             \   /             \         /
-develop       ●─●───●───────────●───●───●───●        (integração)
-                 \     /             \     /
-feature           ●───●               ●───●          (feature/login, feature/busca)
+```mermaid
+%%{init: {'gitGraph': {'showCommitLabel': false}}}%%
+gitGraph
+    commit tag: "v0.1.0"
+    branch develop
+    checkout develop
+    commit
+    branch feature/login
+    checkout feature/login
+    commit
+    commit
+    checkout develop
+    merge feature/login
+    branch release/1.0
+    checkout release/1.0
+    commit
+    checkout main
+    merge release/1.0 tag: "v1.0.0"
+    checkout develop
+    merge release/1.0
+    checkout main
+    branch hotfix/1.0.1
+    checkout hotfix/1.0.1
+    commit
+    checkout main
+    merge hotfix/1.0.1 tag: "v1.0.1"
+    checkout develop
+    merge hotfix/1.0.1
+    branch feature/busca
+    checkout feature/busca
+    commit
+    commit
+    checkout develop
+    merge feature/busca
+    branch release/1.1
+    checkout release/1.1
+    commit
+    checkout main
+    merge release/1.1 tag: "v1.1.0"
+    checkout develop
+    merge release/1.1
 ```
+
+Repare: a `main` só recebe merges de `release` e `hotfix`, e cada um vira uma tag de versão. O trabalho do dia a dia acontece na `develop`.
 
 | Branch | Sai de | Volta para | Para quê |
 | --- | --- | --- | --- |
@@ -102,14 +135,12 @@ Uma única branch permanente (`main`), sempre pronta para produção, e branches
 
 Um meio-termo: o GitHub Flow mais **branches de ambiente**. O código só anda "para baixo", de um ambiente para o próximo:
 
-```text
-feature  ●───●
-              \ (PR)
-main      ●────●──────●──────────●
-                       \          \
-staging     ────────────●──────────●──────      (testes, homologação)
-                                    \
-production  ─────────────────────────●─────      (o que o cliente usa)
+```mermaid
+flowchart LR
+    F["🌿 feature/*"] -- "pull request" --> M["main<br/>(integração)"]
+    M -- "merge<br/>(promoção)" --> S["staging<br/>(testes, homologação)"]
+    S -- "merge após<br/>aprovação" --> P["production<br/>(o que o cliente usa)"]
+    HF["🚑 correção urgente"] -. "entra primeiro<br/>na main" .-> M
 ```
 
 - Tudo entra primeiro na `main` (regra *upstream first*).
@@ -122,11 +153,36 @@ production  ──────────────────────�
 
 Todo mundo integra na **`main` (o "tronco")** pelo menos uma vez por dia. Ou commitando direto, ou com branches que vivem **horas, no máximo um ou dois dias**.
 
-```text
-main   ●─●─●─●─●─●─●─●─●─●─●─●─●─●─●   (vários merges por dia, sempre verde)
-        \ / \ /   \ /     \ /
-         ●   ●     ●       ●            (branches de horas)
+```mermaid
+%%{init: {'gitGraph': {'showCommitLabel': false}}}%%
+gitGraph
+    commit
+    branch feat/filtro
+    checkout feat/filtro
+    commit
+    checkout main
+    merge feat/filtro
+    commit
+    branch fix/login
+    checkout fix/login
+    commit
+    checkout main
+    merge fix/login
+    branch feat/flag-checkout
+    checkout feat/flag-checkout
+    commit
+    checkout main
+    merge feat/flag-checkout
+    commit
+    branch chore/deps
+    checkout chore/deps
+    commit
+    checkout main
+    merge chore/deps
+    commit
 ```
+
+Cada branch tem um ou dois commits e volta para a `main` no mesmo dia.
 
 É o modelo usado por empresas como Google e Meta. As pesquisas do DORA (*State of DevOps*) associam trunk-based a times com entregas mais rápidas e estáveis.
 
@@ -158,6 +214,19 @@ Duas formas comuns:
 - **Deploy contínuo:** cada merge na `main` vai para produção automaticamente.
 - **Branch de release cortada do tronco:** `release/2026-11` sai da `main` na data do lançamento. Correções são feitas **primeiro na `main`** e depois levadas com cherry-pick:
 
+```mermaid
+gitGraph
+    commit id: "A"
+    commit id: "B"
+    branch release/2026-11
+    checkout main
+    commit id: "C"
+    commit id: "correção"
+    commit id: "D"
+    checkout release/2026-11
+    cherry-pick id: "correção" tag: "v2026.11.1"
+```
+
 ```bash
 git switch main
 # ... commit da correção ...
@@ -187,12 +256,24 @@ git cherry-pick a1b2c3d
 
 ## Como escolher
 
-Responda em ordem:
+```mermaid
+flowchart TD
+    A{"Mantém várias versões<br/>em produção ao mesmo tempo?<br/>(ex.: clientes na v2 e na v3)"}
+    B{"Precisa de homologação ou<br/>aprovação formal antes<br/>da produção?"}
+    C{"Tem testes e deploy<br/>automatizados confiáveis?"}
+    GF["🌳 Git Flow<br/>ou trunk-based com<br/>branches de release"]
+    GL["🏛️ GitLab Flow<br/>(branches de ambiente)<br/>ou trunk-based com<br/>environments aprovados"]
+    TB["🚀 Trunk-based"]
+    GH["✅ GitHub Flow<br/>(e evolua para trunk-based)"]
+    A -- Sim --> GF
+    A -- Não --> B
+    B -- Sim --> GL
+    B -- Não --> C
+    C -- Sim --> TB
+    C -- "Ainda não" --> GH
+```
 
-1. **Você mantém várias versões em produção ao mesmo tempo?** (ex.: clientes na v2 e na v3) → Git Flow ou trunk-based com branches de release.
-2. **Existe homologação ou aprovação formal antes da produção?** → GitLab Flow (branches de ambiente) ou trunk-based com *environments* aprovados no CI.
-3. **Tem testes automatizados confiáveis e deploy automatizado?** Sim → trunk-based. Ainda não → GitHub Flow, e evolua.
-4. **Na dúvida** → GitHub Flow. É simples e fácil de evoluir para trunk-based.
+**Na dúvida**, comece pelo GitHub Flow. É simples e fácil de evoluir para trunk-based.
 
 ## Governança: o que as empresas configuram
 
