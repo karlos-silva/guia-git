@@ -129,6 +129,18 @@ Você não tem permissão para criar branches no repositório dos outros. Então
 | O que é | Cópia no seu computador | Cópia na **sua conta do GitHub** |
 | Para quê | Trabalhar localmente | Propor mudanças em projetos onde você não tem acesso de escrita |
 
+```mermaid
+flowchart LR
+    O["🏢 Repositório original<br/>(upstream)"]
+    F["👤 Seu fork no GitHub<br/>(origin)"]
+    L["💻 Seu computador"]
+    O -- "1. Fork" --> F
+    F -- "2. git clone" --> L
+    L -- "3. git push" --> F
+    F -- "4. Pull request" --> O
+    O -. "git fetch upstream<br/>(manter atualizado)" .-> L
+```
+
 1. Clique em **Fork** no repositório original.
 2. Clone **o seu fork**:
 
