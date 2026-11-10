@@ -143,4 +143,4 @@ E cadastre a chave no GitHub também como *Signing key*.
 
 ---
 
-[← Anterior](14-gitignore-e-hooks.md) · [Índice](../README.md) · [Próximo: Problemas comuns →](16-problemas-comuns.md)
+[← Anterior](14-gitignore-e-hooks.md) · [Índice](../README.md) · [Próximo: Modelos de trabalho nas empresas →](16-modelos-de-trabalho.md)

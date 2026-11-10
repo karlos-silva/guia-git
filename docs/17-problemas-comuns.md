@@ -1,4 +1,4 @@
-# 16. Problemas comuns
+# 17. Problemas comuns
 
 Os "e agora?" mais frequentes, com a solução.
 
@@ -129,4 +129,4 @@ git clean -fd     # remove também arquivos novos
 
 ---
 
-[← Anterior](15-git-avancado.md) · [Índice](../README.md) · [Cola de comandos →](cola.md)
+[← Anterior](16-modelos-de-trabalho.md) · [Índice](../README.md) · [Cola de comandos →](cola.md)
