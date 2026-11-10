@@ -8,11 +8,21 @@ Um **fluxo de trabalho** (workflow) é o combinado do time sobre como usar branc
 
 Simples e suficiente para a maioria dos projetos:
 
-```text
-main    ●───────●───────────●───────●
-         \     /             \     /
-feat      ●───●   fix         ●───●
-          (PR)                (PR)
+```mermaid
+%%{init: {'gitGraph': {'showCommitLabel': false}}}%%
+gitGraph
+    commit
+    branch feat/busca
+    checkout feat/busca
+    commit
+    commit
+    checkout main
+    merge feat/busca tag: "PR #12"
+    branch fix/frete
+    checkout fix/frete
+    commit
+    checkout main
+    merge fix/frete tag: "PR #13"
 ```
 
 1. A `main` está **sempre funcionando** e pronta para ir ao ar.
