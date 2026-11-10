@@ -2,6 +2,8 @@
 
 Um **fluxo de trabalho** (workflow) é o combinado do time sobre como usar branches, quando fazer merge e como lançar versões. Não existe um certo: existe o que combina com o tamanho do time e a frequência de entrega.
 
+> Este capítulo é a introdução. Para ver cada modelo a fundo (comandos de cada etapa, feature flags, governança e como as empresas escolhem), veja [Modelos de trabalho nas empresas](16-modelos-de-trabalho.md).
+
 ## GitHub Flow (recomendado para começar)
 
 Simples e suficiente para a maioria dos projetos:
