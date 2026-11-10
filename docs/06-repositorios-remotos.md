@@ -2,6 +2,22 @@
 
 Um **remoto** é uma cópia do repositório em outro lugar, normalmente no GitHub. É por ele que você faz backup e colabora.
 
+```mermaid
+flowchart LR
+    subgraph PC["💻 Seu computador"]
+        W["📂 Pasta de trabalho"]
+        L["🗄️ Repositório local"]
+    end
+    subgraph GH["☁️ GitHub"]
+        R["🗄️ Repositório remoto<br/>(origin)"]
+    end
+    W -- "git add + git commit" --> L
+    L -- "git push" --> R
+    R -- "git fetch" --> L
+    R -- "git pull<br/>(fetch + merge)" --> W
+    R -. "git clone<br/>(primeira vez)" .-> L
+```
+
 ## Conectando com o GitHub via SSH
 
 Com SSH você não precisa digitar senha a cada push. Faça uma vez por computador.
